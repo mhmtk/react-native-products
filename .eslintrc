@@ -1,0 +1,21 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "ecmaVersion": 6,
+        "jsx": true
+      }
+    },
+    "env": {
+      "react-native/react-native": true
+    },
+    "plugins": [
+      "react",
+      "react-native"
+    ],
+    "rules": {
+      "indent": ["warn", 2],
+      "semi": "warn"
+    }
+  }

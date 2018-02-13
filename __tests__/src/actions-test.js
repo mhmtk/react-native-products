@@ -1,22 +1,35 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import * as actions from '../../src/actions/';
+import * as actions from '../../src/actions';
 import * as types from '../../src/constants';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('authentication service', () => {
+describe('data service', () => {
   let httpClientMock;
   let store;
   beforeEach(() => {
     httpClientMock = {
-      getPeople: jest.fn(() => Promise.resolve())
+      getProducts: jest.fn(() => Promise.resolve())
     };
 
     store = mockStore({});
   });
-  
-});
 
+  test('async task, success', () => {
+    httpClientMock.getProducts = jest.fn(() => Promise.resolve('mock'));
+
+    const expectedActions = [
+      { type: types.FETCHING_DATA },
+      { type: types.FETCHING_DATA_SUCCESS, data: 'mock' }
+    ];
+
+    return store
+      .dispatch(actions.fetchProducts(httpClientMock))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+});

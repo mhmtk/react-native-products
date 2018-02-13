@@ -14,7 +14,9 @@ return {
 }
 
 export function getDataFailure() {
-
+  return {
+    type: FETCHING_DATA_FAILURE
+  }
 }
 
 export function fetchProducts(httpClient) {
@@ -23,6 +25,8 @@ export function fetchProducts(httpClient) {
     return httpClient.getProducts()
       .then((data) => {
         dispatch(getDataSuccess(data))
+      }, (reason) => {
+        dispatch(getDataFailure())
       });
   };
-}
+};

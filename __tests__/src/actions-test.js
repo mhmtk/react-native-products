@@ -32,4 +32,19 @@ describe('data service', () => {
         expect(store.getActions()).toEqual(expectedActions);
       });
   });
+
+  test('async task, fail', () => {
+      httpClientMock.getProducts = jest.fn(() => Promise.reject());
+      
+      const expectedActions = [
+        { type: types.FETCHING_DATA },
+        { type: types.FETCHING_DATA_FAILURE}
+      ];
+  
+      return store
+        .dispatch(actions.fetchProducts(httpClientMock))
+        .then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        });
+  })
 });

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/mkologlu/Mobiquity/react-native-workspace/products/__tests__/src/actions-test.js">
+    <testCase name="data service async task, success" duration="5"/>
+    <testCase name="data service async task, fail" duration="1"/>
+  </file>
+  <file path="/Users/mkologlu/Mobiquity/react-native-workspace/products/__tests__/src/dateReducer-test.js">
+    <testCase name="dateReducer should return the initial state" duration="2"/>
+    <testCase name="dateReducer should handle FETCHING_DATA" duration="0"/>
+    <testCase name="dateReducer should handle FETCHING_DATA_SUCCESS" duration="1"/>
+  </file>
+  <file path="/Users/mkologlu/Mobiquity/react-native-workspace/products/__tests__/src/components/common/header-test.js">
+    <testCase name="header renders correctly" duration="158"/>
+  </file>
+</testExecutions>

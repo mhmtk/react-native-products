@@ -19,11 +19,13 @@ describe('data service', () => {
   });
 
   test('async task, success', () => {
-    httpClientMock.getCategories = jest.fn(() => Promise.resolve('mock'));
+    httpClientMock.getCategories = jest.fn(() => Promise.resolve({
+      data: [{ dummy: "mock"}]
+    }));
 
     const expectedActions = [
       { type: types.FETCHING_DATA },
-      { type: types.FETCHING_DATA_SUCCESS, data: 'mock' }
+      { type: types.FETCHING_DATA_SUCCESS, data: [{ dummy: "mock"}] }
     ];
 
     return store

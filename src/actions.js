@@ -7,7 +7,7 @@ export function getData() {
 }
 
 export function getDataSuccess(data) {
-return {
+  return {
     type: FETCHING_DATA_SUCCESS,
     data
   }
@@ -22,9 +22,9 @@ export function getDataFailure() {
 export function fetchProducts(httpClient) {
   return (dispatch) => {
     dispatch(getData());
-    return httpClient.getProducts()
-      .then((data) => {
-        dispatch(getDataSuccess(data))
+    return httpClient.getCategories()
+      .then((categories) => {
+        dispatch(getDataSuccess(categories.data))
       }, (reason) => {
         dispatch(getDataFailure())
       });

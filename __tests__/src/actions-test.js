@@ -12,14 +12,14 @@ describe('data service', () => {
   let store;
   beforeEach(() => {
     httpClientMock = {
-      getProducts: jest.fn(() => Promise.resolve())
+      getCategories: jest.fn(() => Promise.resolve())
     };
 
     store = mockStore({});
   });
 
   test('async task, success', () => {
-    httpClientMock.getProducts = jest.fn(() => Promise.resolve('mock'));
+    httpClientMock.getCategories = jest.fn(() => Promise.resolve('mock'));
 
     const expectedActions = [
       { type: types.FETCHING_DATA },
@@ -34,7 +34,7 @@ describe('data service', () => {
   });
 
   test('async task, fail', () => {
-      httpClientMock.getProducts = jest.fn(() => Promise.reject());
+      httpClientMock.getCategories = jest.fn(() => Promise.reject());
       
       const expectedActions = [
         { type: types.FETCHING_DATA },
